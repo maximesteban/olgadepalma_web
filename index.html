@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link href="styles/tailwind.css" rel="stylesheet">
+  <!-- Google Fonts: Inter Thin -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevent scrolling */
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 100; /* Thin font weight */
+    }
+    video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensures the video covers the entire screen */
+    }
+    .dotted-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url(/img/dotted-texture.png); /* Replace with your dotted texture image */
+      background-size: cover;
+      opacity: 0.2; /* Adjust opacity for the desired effect */
+      pointer-events: none; /* Ensure it doesn't block interactions */
+    }
+    .logo {
+      position: absolute;
+      top: 60px;
+      right: 120px;
+      width: 100px; /* Adjust the size of the logo */
+    }
+    .menu {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre los enlaces y las líneas */
+    font-size: 16px;
+    font-weight: thin;
+    color: white;
+    padding-top: 30px;
+  }
+  .menu a {
+    text-decoration: none;
+    color: white;
+    padding: 5px 10px; /* Espaciado interno para el texto */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Suave transición para hover */
+  }
+  .menu a:hover {
+    background-color: black; /* Fondo negro al pasar el cursor */
+    color: white; /* Asegura que el texto permanezca blanco */
+    transform: scale(1.2); /* Agranda el texto al pasar el cursor */
+  }
+  .menu .separator {
+    height: 20px; /* Altura de las líneas */
+    width: 1px; /* Grosor de las líneas */
+    background-color: white; /* Color de las líneas */
+  }
+    .title {
+      position: absolute;
+      top: 50%;
+      right: 120px;
+      transform: translateY(-50%);
+      text-align: right;
+      color: white;
+      font-size: 3rem;
+      font-weight: 100;
+      padding-right: 20px;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+
+    }
+    .banner {
+      position: absolute;
+      bottom: 40px; /* Directly above the footer */
+      left: 0;
+      width: 100%;
+      background-color: rgba(255, 255, 255, 0.8); /* White background with 80% opacity */
+      padding: 20px 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
+    }
+    .banner img {
+      height: 50px; /* Adjust logo size */
+    }
+     .footer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive: en móviles/tabletas, dos filas */
+@media (max-width: 700px) {
+  .footer {
+    flex-direction: column;
+    gap: 2px;
+  }
+  .footer > div {
+    justify-content: center;
+  }
+}
+
+/* Responsive styles */
+    @media (max-width: 900px) {
+      .logo {
+       position: absolute;
+       top: 30px;           /* Más abajo */
+       left: 50%;
+       transform: translateX(-50%);
+       width: 120px;        /* Más grande */
+     }
+      .menu {
+        font-size: 20px;
+        gap: 6px;
+        padding-top: 175px;
+        top: 8px;
+      }
+      .title {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 3.5rem;
+        padding: 0 4vw;
+        width: 80vw;
+}
+    }
+    @media (max-width: 600px) {
+      .logo {
+      position: absolute;
+      top: 50px;           /* Más abajo */
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;        /* Más grande */ 
+    }
+      .menu {
+        font-size: 15px;
+        gap: 4px;
+        padding-top: 200px;
+        top: 0;
+      }
+      .title {
+        position: absolute;
+        top: 55%;
+        left: 50%;
+        right: auto;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 2.5rem;
+        padding: 0 4vw;
+        width: 80vw; 
+      }
+      .footer {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 11px;
+        padding: 6px 0;
+      }
+      .footer > div {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Fullscreen Background Video -->
+  <div class="relative h-full w-full">
+    <video autoplay muted loop>
+      <source src="/videos/teaser-sound_1.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <!-- Dotted Texture Overlay -->
+    <div class="dotted-overlay"></div>
+    <!-- Logo -->
+    <img src="/img/logo.png" alt="Logo" class="logo">
+    <!-- Menu -->
+    <nav class="menu">
+        <a href="index.html">HOME</a>
+        <div class="separator"></div>
+        <a href="about.html">ABOUT</a>
+        <div class="separator"></div>
+        <a href="talents.html">TALENTS</a>
+        <div class="separator"></div>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    <!-- Title -->
+    <div class="title">
+      ARTIST & TALENT<br> BRANDING
+    </div>
+  </div>
+  <!-- Banner 
+  <div class="banner">
+    <img src="/img/sony.png" alt="Collaborator 1">
+    <img src="logo2.png" alt="Collaborator 2">
+    <img src="logo3.png" alt="Collaborator 3">
+    <img src="logo4.png" alt="Collaborator 4">
+  </div> -->
+  <!-- Footer -->
+  <footer class="footer">
+    <div>
+    <a href="legal.html">Aviso Legal</a>
+    <a href="privacy.html">Privacidad</a>
+    <a href="cookies.html">Cookies</a>
+    </div>
+    <div></div>
+    <span>&copy; 2025 Olga De Palma S.L. Todos los derechos reservados.</span>
+  </footer>
+</body>
+</html>

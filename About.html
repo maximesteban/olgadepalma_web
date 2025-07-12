@@ -1,0 +1,796 @@
+/* filepath: e:\OLGA DE PALMA\WEB\about-tesst.html */
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About</title>
+  <link href="styles/tailwind.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100&display=swap" rel="stylesheet">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-weight: 100;
+      background: black url('/img/bg2.png') center center/cover no-repeat fixed;
+      color: white;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+    * {
+  box-sizing: border-box;
+}
+    body::before {
+     content: "";
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0,0,0,0.7);
+     pointer-events: none;
+    }
+    @font-face {
+      font-family: 'Avelire';
+      src: url('/fonts/AVELIRE.otf') format('opentype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body::-webkit-scrollbar {
+      display: none;
+    }
+    .dotted-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100vh;
+      background-image: url('dotted-texture.png');
+      background-size: cover;
+      opacity: 0.2;
+      pointer-events: none;
+    }
+    
+    .logo {
+      position: fixed;
+      top: 30px;
+      right: 50px;
+      width: 70px;
+      z-index: 40;
+    }
+    
+    .menu {
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 10px;
+      font-size: 16px;
+      font-weight: thin;
+      color: white;
+      z-index: 40;
+      display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+    }
+    .menu a {
+      text-decoration: none;
+      color: white;
+      padding: 5px 10px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+    .menu a:hover {
+      background-color: white;
+      color: black;
+      transform: scale(1.2);
+    }
+    .menu .separator {
+      height: 20px;
+      width: 1px;
+      background-color: white;
+    }
+    
+    .footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      font-size: 14px;
+      border-top: 1px solid #222;
+      flex-direction: row;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      z-index: 40;
+    }
+    .footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .parallax-content {
+      position: relative;
+      min-height: 100vh;
+      padding: 120px 20px 90px;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 80px;
+        box-sizing: border-box; /* ASEGURAR BOX-SIZING */
+
+    }
+    
+    .fade-section {
+      opacity: 0;
+      transition: opacity 1.2s ease, transform 1.2s ease;
+      padding: 40px 40px;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+        box-sizing: border-box; /* AÑADIR ESTO */
+
+    }
+    
+    .fade-section.slide-left {
+      transform: translateX(-200px);
+    }
+    
+    .fade-section.slide-right {
+      transform: translateX(200px);
+    }
+    
+    .fade-section.slide-up {
+      transform: translateY(80px);
+    }
+    
+    .fade-section.visible {
+      opacity: 1;
+      transform: translateX(0) translateY(0);
+    }
+    
+    
+    .fade-section-2 {
+      opacity: 1;
+      transform: translateY(40px);
+      transition: opacity 1s, transform 1s;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+        box-sizing: border-box; /* ASEGURAR BOX-SIZING */
+
+    }
+    
+    .fade-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+    }
+    .fade-section > * {
+      position: relative;
+    }
+    
+    .parallax-content::before,
+.parallax-content::after {
+  content: "";
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  pointer-events: none;
+  z-index: 35;
+}
+.parallax-content::before {
+  top: 0;
+  background: linear-gradient(to bottom, black 70%, transparent 100%);
+}
+.parallax-content::after {
+  bottom: 0;
+  background: linear-gradient(to top, black 70%, transparent 100%);
+}
+    
+    .texto {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 100;
+      color: #fff;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: #222 1px 1px 1px;
+    }
+    
+    .subtitulo {
+      font-family: 'Avelire', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 4rem;
+      font-weight:300;
+      color: #fff;
+      margin: 2.5rem 0 1rem 0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      text-shadow: #222 1px 1px 1px;
+    }
+    
+    .texto2 {
+      font-family: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2rem;
+      font-weight: 100;
+      color: #fff;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.5rem;
+      text-align: center;
+      text-shadow: #222 1px 1px 1px;
+    }
+    
+    .subtitulo2 {
+      font-family: 'Avelire', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+      font-size: 2.5rem;
+      font-weight:300;
+      color: #fff;
+      margin: 2.5rem 0 1rem 0;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      text-align: center;
+      display: block;
+      text-shadow: #222 1px 1px 1px;
+    }
+
+    .typewriter-text {
+      overflow: hidden;
+      border-right: 2px solid #fff;
+      white-space: normal;
+      animation: blink-cursor 1s infinite;
+      max-width: 100%;
+      margin: 0 auto;
+      word-wrap: break-word;
+      line-height: 1.4;
+      text-align: center;
+    }
+    
+    .typewriter-text.typing {
+      border-right: 2px solid #fff;
+    }
+    
+    .typewriter-text.finished {
+      border-right: none;
+    }
+    
+    @keyframes blink-cursor {
+      0%, 50% { border-color: #fff; }
+      51%, 100% { border-color: transparent; }
+    }
+    
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .scroll-image {
+      position: absolute;
+      opacity: 0;
+      transform: translateY(60px) scale(0.95);
+      transition: all 1s ease;
+      max-width: 160px;
+      pointer-events: none;
+    }
+
+    .scroll-image.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .scroll-image.left { left: -80px; top: 20%; }
+    .scroll-image.right { right: -80px; top: 40%; }
+    .scroll-image.bottom { bottom: -60px; left: 50%; transform: translateX(-50%) scale(0.95); }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
+    }
+
+    @keyframes bounceUp {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(10px); }
+      60% { transform: translateY(5px); }
+    }
+
+        /* RESPONSIVE - REEMPLAZA TODA LA SECCIÓN RESPONSIVE */
+    @media (max-width: 1024px) {
+      .parallax-content {
+        max-width: 100%;
+        padding: 120px 40px 90px;
+      }
+      .fade-section {
+        max-width: 700px;
+        padding: 35px 30px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section-2 {
+        max-width: 100%;
+        padding: 35px 30px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section .texto,
+      .fade-section .texto2 {
+        max-width: 100%;
+        text-align: center;
+      }
+      .fade-section .subtitulo,
+      .fade-section .subtitulo2 {
+        max-width: 100%;
+        text-align: center;
+      }
+      .subtitulo {
+        font-size: 3.5rem;
+        text-align: center;
+      }
+      .subtitulo2 {
+        font-size: 2.3rem;
+        text-align: center;
+      }
+      .texto {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .texto2 {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .typewriter-text {
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+       /* Tablet */
+    @media (max-width: 900px) {
+      .logo {
+        top: 25px;
+        left: 90%;
+        transform: translateX(-50%);
+        width: 50px;
+      }
+      .menu {
+    position: fixed;
+    top: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    gap: 8px;
+    z-index: 40;
+  }
+      .parallax-content {
+        padding: 100px 25px 90px;
+        gap: 70px;
+      }
+      .fade-section {
+        max-width: 600px;
+        padding: 30px 15px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section-2 {
+        padding: 30px 20px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section .texto,
+      .fade-section .texto2 {
+        max-width: 100%;
+        text-align: center;
+      }
+      .fade-section .subtitulo,
+      .fade-section .subtitulo2 {
+        max-width: 100%;
+        text-align: center;
+      }
+      .subtitulo {
+        font-size: 3rem;
+        text-align: center;
+      }
+      .subtitulo2 {
+        font-size: 2.2rem;
+        text-align: center;
+      }
+      .texto2 {
+        font-size: 1.6rem;
+        text-align: center;
+      }
+      .texto {
+        font-size: 1.15rem;
+        text-align: center;
+      }
+      .typewriter-text {
+        font-size: 2rem;
+        line-height: 1.35;
+        text-align: center;
+        max-width: 100%;
+      }
+    }
+    
+    @media (max-width: 700px) {
+      .logo {
+        display: none;
+      }
+      
+       .menu {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 15px;
+  gap: 6px;
+  padding-top: 30px;
+}
+      .parallax-content {
+        padding: 80px 20px 90px;
+        gap: 60px;
+      }
+      .fade-section {
+        max-width: 100%;
+        padding: 30px 10px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section-2 {
+        padding: 30px 10px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .subtitulo {
+        font-size: 2.5rem;
+        margin: 2rem 0 2rem 0;
+        text-align: center;
+      }
+      .subtitulo2 {
+        font-size: 2rem;
+        margin: 2rem 0 2rem 0;
+        text-align: center;
+      }
+      .texto2 {
+        font-size: 1.3rem;
+        text-align: center;
+      }
+      .texto {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+      .typewriter-text {
+        font-size: 1.8rem;
+        line-height: 1.3;
+        max-width: 95%;
+        text-align: center;
+      }
+      .fade-section-2 video {
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        display: block !important;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .menu {
+        font-size: 14px;
+        gap: 6px;
+        top: 25px;
+        display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+      }
+      .parallax-content {
+        padding: 70px 15px 90px;
+        gap: 50px;
+      }
+      .fade-section {
+        padding: 25px 25px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .fade-section-2 {
+        padding: 25px 25px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .subtitulo {
+        font-size: 2.2rem;
+        margin: 1rem 0 1rem 0;
+        text-align: center;
+      }
+      .subtitulo2 {
+        font-size: 1.8rem;
+        margin: 1rem 0 1rem 0;
+        text-align: center;
+      }
+      .texto2 {
+        font-size: 1.2rem;
+        text-align: center;
+      }
+      .texto {
+        font-size: 1rem;
+        line-height: 1.6;
+        text-align: center;
+      }
+      .typewriter-text {
+        font-size: 1.6rem;
+        line-height: 1.25;
+        max-width: 98%;
+        text-align: center;
+      }
+      .footer {
+        font-size: 12px;
+        padding: 8px 0;
+      }
+    }
+    
+      
+    
+  </style>
+</head>
+<body>
+  <div class="dotted-overlay"></div>
+  <img src="/img/logo.png" alt="Logo" class="logo">
+  <nav class="menu">
+    <a href="index.html">HOME</a>
+    <div class="separator"></div>
+    <a href="about.html">ABOUT</a>
+    <div class="separator"></div>
+    <a href="talents.html">TALENTS</a>
+    <div class="separator"></div>
+    <a href="contact.html">CONTACT</a>
+  </nav>
+
+  <div class="parallax-content">
+    <section class="fade-section slide-up">
+      <p class="subtitulo2 typewriter-text" data-text='"Dicen que está todo inventado, pero lo que la gente no sabe, es que lo más importante no es el QUÉ, sino el CÓMO."'>
+      </p>
+      <p class="texto2" data-text="OLGA DE PALMA" data-delay="3000">
+        OLGA DE PALMA
+      </p>
+    </section>
+    
+    <section class="fade-section bg-img2 slide-left">
+      <p class="texto">
+        Olga de Palma es una agencia de personal branding especializada en vincular a artistas y talentos con marcas. Nuestro objetivo es construir una imagen sólida y rentable para los artistas, sin perder de vista su esencia y autenticidad. Con un enfoque integral, trabajamos tanto en la estrategia como en la operativa para asegurar un posicionamiento coherente y exitoso a medio y largo plazo.
+      </p>
+    </section>
+    
+    <section class="fade-section bg-img3 slide-right">
+      <p class="subtitulo">una historia, una marca, un legado.</p>
+    </section>
+    
+    <section class="fade-section bg-img4 slide-left">
+      <p class="texto">
+        En Olga de Palma no solo hablamos de branding, lo vivimos. Entendemos que la clave del éxito está en el 'cómo' y no solo en el 'qué'. Nos dedicamos a construir carreras y posicionamientos que perduran en el tiempo, con una visión artística y moderna, respetando siempre la identidad de nuestros clientes.
+      </p>
+    </section>
+    
+    <section class="fade-section bg-img5 slide-right">
+      <p class="subtitulo">EL PODER DEL 'CÓMO'</p>
+    </section>
+    
+    <section class="fade-section bg-img6 slide-left">
+      <p class="texto">
+        Este es nuestro valor diferencial: ayudamos a nuestros clientes a construir una carrera, a posicionarse y a obtener rentabilidad sin perder de vista quiénes son. Cada paso en nuestro proceso está alineado con la coherencia, la estrategia y el compromiso con el éxito.
+      </p>
+    </section>
+    
+    <section class="fade-section bg-img1 slide-right">
+      <p class="subtitulo">TU HISTORIA, NUESTRA ESTRATEGIA, TU ÉXITO</p>
+    </section>
+    
+    <div style="width:100%;display:flex;justify-content:center;align-items:center;margin:20px 0;">
+      <span style="font-size:2.5rem; color:#fff; opacity:0.7; animation:bounce 1.2s infinite;">&#8595;</span>
+    </div>
+    
+    <section class="fade-section fade-section-2 slide-up">
+      <video controls style="width:100%; height:auto; max-width:100%; display:block; background-color:#000;">
+        <source src="/videos/OLGADEPALMA-FINAL.mp4" type="video/mp4">
+        Tu navegador no soporta el video.
+      </video>
+      <div style="width:100%;display:flex;justify-content:center;align-items:center;margin:50px 0;">
+        <a href="#" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;" style="font-size:2.5rem; color:#fff; opacity:0.7; text-decoration:none; animation:bounceUp 1.2s infinite;">
+          &#8593;
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <footer class="footer">
+    <div>
+      <a href="legal.html">Aviso Legal</a>
+      <a href="privacy.html">Privacidad</a>
+      <a href="cookies.html">Cookies</a>
+    </div>
+    <div></div>
+    <span>&copy; 2025 Olga De Palma S.L. Todos los derechos reservados.</span>
+  </footer>
+
+
+<script>
+/* filepath: e:\OLGA DE PALMA\WEB\about-tesst.html */
+// REEMPLAZAR TODO EL SCRIPT CON ESTE CÓDIGO CORREGIDO
+let typewriterExecuted = new Set();
+
+function revealOnScroll() {
+  const sections = document.querySelectorAll('.fade-section');
+  const triggerBottom = window.innerHeight * 0.8;
+  const triggerTop = window.innerHeight * 0.2;
+  
+  sections.forEach((section, sectionIndex) => {
+    const rect = section.getBoundingClientRect();
+    
+    // DEBUGGING
+    console.log(`Sección ${sectionIndex}: 
+      - Top: ${rect.top}
+      - Bottom: ${rect.bottom}
+      - Trigger Bottom: ${triggerBottom}
+      - Trigger Top: ${triggerTop}
+      - En viewport: ${rect.top < triggerBottom && rect.bottom > triggerTop}
+      - Tiene clase visible: ${section.classList.contains('visible')}`);
+    
+    if(rect.top < triggerBottom && rect.bottom > triggerTop) {
+      if(!section.classList.contains('visible')) {
+        section.classList.add('visible');
+        console.log(`✅ Sección ${sectionIndex} ACTIVADA`);
+        
+        // ACTIVAR TYPEWRITER
+        const typewriterTexts = section.querySelectorAll('.typewriter-text');
+        typewriterTexts.forEach((text, index) => {
+          const uniqueId = `${sectionIndex}-${index}`;
+          
+          if (!typewriterExecuted.has(uniqueId)) {
+            const delay = parseInt(text.getAttribute('data-delay')) || (index * 2000);
+            setTimeout(() => {
+              startTypewriter(text);
+              typewriterExecuted.add(uniqueId);
+            }, delay);
+          }
+        });
+      }
+    } else {
+      // COMENTAR ESTA LÍNEA PARA DEBUGGING
+      // section.classList.remove('visible');
+    }
+  });
+}
+
+function startTypewriter(element) {
+  const text = element.getAttribute('data-text');
+  const speed = 50;
+  let i = 0;
+  
+  if (!text) return; // VERIFICAR QUE HAY TEXTO
+  
+  element.innerHTML = '';
+  element.classList.add('typing');
+  element.classList.remove('finished');
+  
+  function typeWriter() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, speed);
+    } else {
+      element.classList.remove('typing');
+      element.classList.add('finished');
+    }
+  }
+  
+  typeWriter();
+}
+
+// FUNCIÓN PARA FORZAR ACTIVACIÓN (DEBUGGING)
+function showAllSections() {
+  const sections = document.querySelectorAll('.fade-section');
+  sections.forEach((section, index) => {
+    section.classList.add('visible');
+    console.log(`🔧 Forzando sección ${index}`);
+  });
+}
+
+// EVENTOS
+window.addEventListener('scroll', () => {
+  revealOnScroll();
+});
+
+window.addEventListener('DOMContentLoaded', () => {
+  console.log('🚀 DOM cargado, iniciando animaciones');
+  
+  // ACTIVAR INMEDIATAMENTE TODAS LAS SECCIONES PARA DEBUGGING
+  setTimeout(() => {
+    showAllSections();
+  }, 500);
+  
+  // TAMBIÉN EJECUTAR LA FUNCIÓN NORMAL
+  revealOnScroll();
+});
+
+// EJECUTAR TAMBIÉN EN RESIZE
+window.addEventListener('resize', () => {
+  revealOnScroll();
+});
+</script>
+</body>
+</html>
