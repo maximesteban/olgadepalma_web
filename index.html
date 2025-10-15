@@ -201,19 +201,17 @@
     }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Fullscreen Background Video -->
-  <div class="relative h-full w-full">
-    <video autoplay muted loop playsinline preload="auto">
-  <source src="videos/teaser-muted.mp4" type="video/mp4">
-</video>
-
-    <!-- Dotted Texture Overlay -->
-    <div class="dotted-overlay"></div>
-    <!-- Logo -->
-    <img src="img/logo.png" alt="Logo" class="logo">
-    <!-- Menu -->
-    <nav class="menu">
+<body style="margin:0;padding:0;height:100vh;width:100vw;overflow:hidden;font-family:'Inter','Helvetica Neue',Arial,sans-serif;background:#14345a;position:relative;">
+  <!-- Ocultamos el contenido original -->
+  <div style="display:none">
+    <!-- Fullscreen Background Video -->
+    <div class="relative h-full w-full">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="videos/teaser-muted.mp4" type="video/mp4">
+      </video>
+      <div class="dotted-overlay"></div>
+      <img src="img/logo.png" alt="Logo" class="logo">
+      <nav class="menu">
         <a href="index.html">HOME</a>
         <div class="separator"></div>
         <a href="about.html">ABOUT</a>
@@ -222,27 +220,41 @@
         <div class="separator"></div>
         <a href="contact.html">CONTACT</a>
       </nav>
-    <!-- Title -->
-    <div class="title">
-      ARTIST & TALENT<br> BRANDING
+      <div class="title">
+        ARTIST & TALENT<br> BRANDING
+      </div>
+    </div>
+    <!-- Banner y Footer ocultos -->
+    <footer class="footer">
+      <div>
+        <a href="legal.html">Aviso Legal</a>
+        <a href="privacy.html">Privacidad</a>
+        <a href="cookies.html">Cookies</a>
+      </div>
+      <div></div>
+      <span>&copy; 2025 Olga De Palma S.L. Todos los derechos reservados.</span>
+    </footer>
+  </div>
+  <!-- Página temporal -->
+  <div style="position:fixed;top:0;left:0;width:100vw;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#3d3d3d;background-image:url('img/dotted-texture.png');background-size:cover;">
+    <!-- Video overlay hormigas -->
+    <video autoplay muted loop playsinline preload="auto" style="position:absolute;top:0;left:0;width:100vw;height:100vh;object-fit:cover;z-index:0;opacity:0.25;pointer-events:none;">
+      <source src="videos/ants-muted.mp4" type="video/mp4">
+    </video>
+    <!-- Contenido principal -->
+    <div style="position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100vw;">
+      <img src="img/logo.png" alt="Logo Olga De Palma" style="width:140px;margin-bottom:32px;filter:drop-shadow(0 2px 8px #000000);">
+      <h1 style="color:white;font-size:2.8rem;font-weight:100;margin-bottom:18px;text-align:center;font-family:'Inter','Helvetica Neue',Arial,sans-serif;letter-spacing:1px;text-shadow:2px 2px 8px rgba(0,0,0,0.4);">New content coming soon</h1>
+      <p style="color:white;font-size:1.1rem;font-weight:100;margin-bottom:24px;text-align:center;opacity:0.8;">Stay in the loop on <a href="https://instagram.com/olgadepalma" target="_blank" rel="noopener" style="color:#e0e0e0;text-decoration:underline;">Instagram</a></p>
+      <!-- Botón de contacto -->
+      <a href="mailto:olga@olgadepalma.com" style="display:inline-flex;align-items:center;gap:10px;background:#fff;color:#3d3d3d;font-weight:500;font-size:1.1rem;padding:10px 22px;border-radius:30px;text-decoration:none;box-shadow:0 2px 8px rgba(20,52,90,0.12);margin-bottom:32px;transition:background 0.2s;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#3d3d3d" viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 0 1 4.5 4h15A2.5 2.5 0 0 1 22 6.5v11A2.5 2.5 0 0 1 19.5 20h-15A2.5 2.5 0 0 1 2 17.5v-11zm2.5-.5a.5.5 0 0 0-.5.5v.217l8 5.333 8-5.333V6.5a.5.5 0 0 0-.5-.5h-15zm15.5 2.383-7.646 5.096a1 1 0 0 1-1.208 0L4.5 8.383V17.5a.5.5 0 0 0 .5.5h15a.5.5 0 0 0 .5-.5V8.383z"/></svg>
+        olga@olgadepalma.com
+      </a>
+    </div>
+    <div style="position:absolute;bottom:32px;width:100%;text-align:center;color:white;font-size:1rem;opacity:0.7;z-index:2;">
+      &copy; 2025 Olga De Palma S.L. Todos los derechos reservados.
     </div>
   </div>
-  <!-- Banner 
-  <div class="banner">
-    <img src="img/sony.png" alt="Collaborator 1">
-    <img src="logo2.png" alt="Collaborator 2">
-    <img src="logo3.png" alt="Collaborator 3">
-    <img src="logo4.png" alt="Collaborator 4">
-  </div> -->
-  <!-- Footer -->
-  <footer class="footer">
-    <div>
-    <a href="legal.html">Aviso Legal</a>
-    <a href="privacy.html">Privacidad</a>
-    <a href="cookies.html">Cookies</a>
-    </div>
-    <div></div>
-    <span>&copy; 2025 Olga De Palma S.L. Todos los derechos reservados.</span>
-  </footer>
 </body>
 </html>
